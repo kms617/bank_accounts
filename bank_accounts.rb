@@ -4,14 +4,16 @@
 #   transaction history for the account in chronological order.
 
 # You must define a Transaction class. It should have the following behaviors:
-
 # deposit? that returns true if the transaction was a deposit as opposed to a withdrawal
 # summary that returns a string describing the transaction
+
+
 # You must define an Account class. It should have the following behaviors:
 
 # starting_balance that returns the starting balance loaded from the file
 # current_balance that returns the ending balance after all transactions have been processed
 # summary that returns an array of all of the transaction summaries
+
 # Your Account class should have an instance variable that contains an array of its associated Transactions.
 
 # require_relative "transaction"
@@ -64,24 +66,24 @@ end
 bank_data = []
 bank_data = read_csv('public/bank_data.csv')
 
-bank_data.each do |row|
-  if row[:amount] < 0
-    row << ({:type => "WITHDRAWAL"})
-    row[:amount] = (row[:amount] * -1)
-  else
-    row << ({:type => "DEPOSIT"})
-  end
-end
+# bank_data.each do |row|
+#   if row[:amount] < 0
+#     row << ({:type => "WITHDRAWAL"})
+#     row[:amount] = (row[:amount] * -1)
+#   else
+#     row << ({:type => "DEPOSIT"})
+#   end
+# end
 
-business_acct = []
-purchasing_acct = []
-bank_data.each do |row|
-  if row[:account] == "Business Checking"
-    business_acct << row
-  else
-    purchasing_acct << row
-  end
-end
+# business_acct = []
+# purchasing_acct = []
+# bank_data.each do |row|
+#   if row[:account] == "Business Checking"
+#     business_acct << row
+#   else
+#     purchasing_acct << row
+#   end
+# end
 
 balances = []
 balances = read_csv('public/balances.csv')

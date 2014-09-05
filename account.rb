@@ -10,7 +10,7 @@
 class Account
 
   def initialize(bank_data, balances)
-    @balance
+    @balances = balances
 
 
   def starting_balance(balances)

@@ -4,6 +4,28 @@
 # summary that returns a string describing the transaction
 
 class Transaction
-  def initialize()
+  attr_reader :date, :amount, :description
+
+  def initialize(date, amount, description)
+    @date = date
+    @amount = amount
+    @description = description
+  end
+
+  def deposit?
+    @amount > 0
+  end
+
+  def type
+    if deposit?
+      "DEPOSIT"
+    else
+      "WITHDRAWAL"
+    end
+  end
+
+  def summary
+   "$#{sprintf('%.2f', @amount.abs)} #{type} #{@date} - #{@description}"
+  end
 
 end
